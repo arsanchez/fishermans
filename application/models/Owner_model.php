@@ -15,7 +15,20 @@ class Owner_model extends CI_Model
       }
       else
       {
-        return true;
+        return false;
+      }
+    }
+
+    public function update_owner($id = 0,$data)
+    {
+      if($id != 0)
+      {
+        $this->db->where('id', $id);
+        return $result = $this->db->update('owners', $data); 
+      }
+      else
+      {
+        return false;
       }
     }
 
@@ -33,5 +46,10 @@ class Owner_model extends CI_Model
         return $query->row();
       }
       return false;
+    }
+
+    public function get_owners()
+    {
+      return $this->db->get('owners')->result_array();
     }
 }

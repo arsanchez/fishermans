@@ -62,3 +62,4 @@
     </style>
   </head>
   <body>
+  <input type="hidden" id="baseUrl" value="<?php echo base_url(); ?>">
