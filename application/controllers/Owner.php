@@ -24,16 +24,32 @@ class Owner extends CI_Controller {
 	public function save_owner()
 	{
 		// TODO validate inputs
+		$this->form_validation->set_rules('txtNif', 'NIF', 'required');
+		$this->form_validation->set_rules('txtNombre', 'nombre', 'required');
+		$this->form_validation->set_rules('txtDireccion', 'Direccion', 'required');
+		$this->form_validation->set_rules('txtTelefono', 'Telefono', 'required');
+
+
 		$ownerData = array('identificacion' => $this->input->post('txtNif'),
 					  'nombre' => $this->input->post('txtNombre'),
 					  'direccion' => $this->input->post('txtDireccion'),
 					  'telefono' => $this->input->post('txtTelefono'),
 					  'fax' => $this->input->post('txtFax'));
-		$result = $this->owner_model->new_owner($ownerData);
 
+		if ($this->form_validation->run() == FALSE)
+        {
+            $result = FALSE;
+        }
+        else 
+        {
+        	$result = $this->owner_model->new_owner($ownerData);
+        }
+		
 		$resultMessage = ($result == true) ? "Dueño guardado" : "Error al guardar";
-		$data = array('header_title' => $this->lang->line('owners_list'),'message' => $resultMessage);
-		$this->load->view('owner/owner_list',$data);
+		$status        = ($result == true) ? "ok" : "fail";
+		
+		$response = array('status' => $status,'message' => $resultMessage);
+		echo json_encode($response);
 		
 	}
 

@@ -36,7 +36,6 @@
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
     <meta name="msapplication-TileColor" content="#3372DF">
-    <link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.png'); ?>">
 
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
@@ -46,7 +45,10 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/material.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/styles.css '); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/styles.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.datatables.min.css'); ?>">
+
     <style>
     #view-source {
       position: fixed;

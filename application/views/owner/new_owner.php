@@ -3,7 +3,7 @@
 <main class="mdl-layout__content">
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--6-col">
-    <form action="<?php echo base_url('index.php/owner/save_owner'); ?>" method = "post">
+    <form action="<?php echo base_url('index.php/owner/save_owner'); ?>" method = "post" id = "newOwnerForm">
       <div class="mdl-textfield mdl-js-textfield">
         <input class="mdl-textfield__input" type="text" id="txtNif" name="txtNif">
         <label class="mdl-textfield__label" for="txtNif">NIF</label>
@@ -39,6 +39,10 @@
 <?php  $this->load->view('includes/footer'); ?>
 <script type="text/javascript">
 	$(document).ready(function(){
-		
+		$('#newOwnerForm').ajaxForm({ 
+        success:  function(data){
+          BootstrapDialog.alert(data);
+        }
+    }); 
 	});
 </script>
