@@ -16,9 +16,16 @@
     </div>
   </header>
   <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-    <a class="mdl-navigation__link" href="<?php echo base_url('index.php/home'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home</a>
-    <a class="mdl-navigation__link" href="<?php echo base_url('index.php/owner'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i><?php echo $this->lang->line('owners'); ?></a>
-     <a class="mdl-navigation__link" href="<?php echo base_url('index.php/ship'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i><?php echo $this->lang->line('ship'); ?></a>
+    <a class="mdl-navigation__link" href="<?php echo base_url('index.php/home'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Home
+    </a>
+    <a class="mdl-navigation__link" href="<?php echo base_url('index.php/owner'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i><?php echo $this->lang->line('owners'); ?>
+    </a>
+    <a class="mdl-navigation__link" href="<?php echo base_url('index.php/ship'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Naves
+    </a>
+    <a class="mdl-navigation__link" href="<?php echo base_url('index.php/crew'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Tripulaci&oacute;n
+    </a>
+    <a class="mdl-navigation__link" href="<?php echo base_url('index.php/ship'); ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i><?php echo $this->lang->line('ship'); ?>
+    </a>
 
   </nav>
 </div>
