@@ -4,6 +4,7 @@
    <script src="<?php echo base_url('assets/js/bootstrap-dialog.min.js '); ?>"></script>
    <script src="<?php echo base_url('assets/js/jquery.datatables.min.js '); ?>"></script>
    <script src="<?php echo base_url('assets/js/material.min.js '); ?>"></script>
+   <script src="<?php echo base_url('assets/js/jquery-ui/jquery-ui.min.js'); ?>"></script>
    <!-- page main js -->
    <script src="<?php echo base_url('assets/js/main.js '); ?>"></script>
   </body>

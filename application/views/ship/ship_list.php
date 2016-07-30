@@ -11,7 +11,7 @@
 	</button>
   </div>
   <div class="mdl-cell mdl-cell--12-col">
-  <table id="ownersTable" class="display" cellspacing="0" width="100%">
+  <table id="shipsTable" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>ID</th>
@@ -50,7 +50,7 @@
 		$("body").on("click","#btnNewShip",function(){
 			window.location = '<?php echo base_url("index.php/ship/new_ship"); ?>'
 		})
-
+    loadShipsTable("shipsTable");
  	  
 	});
 </script>

@@ -7,11 +7,11 @@ class Crew_model extends CI_Model
       parent::__construct();
     }
 
-    public function new_owner($data = null)
+    public function new_crew($data = null)
     {
       if($data != null) 
       {
-        return $this->db->insert('owners', $data);
+        return $this->db->insert('crew', $data);
       }
       else
       {
@@ -19,12 +19,12 @@ class Crew_model extends CI_Model
       }
     }
 
-    public function update_owner($id = 0,$data)
+    public function update_cew($id = 0,$data)
     {
       if($id != 0)
       {
         $this->db->where('id', $id);
-        return $result = $this->db->update('owners', $data); 
+        return $result = $this->db->update('crew', $data); 
       }
       else
       {
@@ -32,7 +32,7 @@ class Crew_model extends CI_Model
       }
     }
 
-    public function get_owner($id = 0)
+    public function get_crew($id = 0)
     {
       if($id == 0)
       {
@@ -40,7 +40,7 @@ class Crew_model extends CI_Model
       }
 
       $this->db->where('id',$id);
-      $query = $this->db->get('owners');
+      $query = $this->db->get('crew');
       if($query->num_rows() > 0)
       {
         return $query->row();
@@ -48,8 +48,12 @@ class Crew_model extends CI_Model
       return false;
     }
 
-    public function get_owners()
+    public function get_crews()
     {
-      return $this->db->get('owners')->result_array();
+       $this->db->select('c.id,c.identificacion,c.nombre,c.direccion,c.telefono,c.cargo,s.matricula');
+      $this->db->from('crew c');
+      $this->db->join('ship s','s.id = c.id_ship','LEFT');
+      $query = $this->db->get()->result_array();
+      return $query;
     }
 }

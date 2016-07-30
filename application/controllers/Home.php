@@ -20,15 +20,12 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('home');
+		$this->load->view('trip/trip_list');
 	}
 
-	public function new_ship()
+	public function new_trip()
 	{
-		$data = array('header_title' => $this->lang->line('new_ship_title'));
-		$this->load->view('ship/new_ship',$data);
+		$data = array('header_title' => "Registrar nueva salida");
+		$this->load->view('trip/new_trip',$data);
 	}
-
-
-
 }

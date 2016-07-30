@@ -6,8 +6,8 @@
   	<?php if(isset($message)):?>
 		<h4><?php echo $message; ?></h4>
 	<?php endif; ?>
-  	<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id = "btnNewCrew">
-	  Agregar miembro	
+  	<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id = "btnNewTrip">
+	  Registrar salida	
 	</button>
   </div>
   <div class="mdl-cell mdl-cell--12-col">
@@ -15,26 +15,17 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>NIF</th>
-                <th>Nombre</th>
-                <th>Direccion</th>
-                <th>Telefono</th>
-                <th>Cargo</th>
                 <th>Nave</th>
-                <th>--</th>
+                <th>Fecha</th>
+                <th>Detalles</th>
             </tr>
         </thead>
         <tfoot>
             <tr>
                 <th>ID</th>
-                <th>NIF</th>
-                <th>Nombre</th>
-                <th>Direccion</th>
-                <th>Telefono</th>
-                <th>Cargo</th>
                 <th>Nave</th>
-                <th>--</th>
-
+                <th>Fecha</th>
+                <th>Detalles</th>
             </tr>
         </tfoot>
         <tbody>
@@ -50,10 +41,9 @@
 <?php  $this->load->view('includes/footer'); ?>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("body").on("click","#btnNewCrew",function(){
-			window.location = '<?php echo base_url("index.php/crew/new_crew"); ?>'
+		$("body").on("click","#btnNewTrip",function(){
+			window.location = '<?php echo base_url("index.php/home/new_trip"); ?>'
 		})
 
- 	  loadCrewTable("crewTable");
 	});
 </script>

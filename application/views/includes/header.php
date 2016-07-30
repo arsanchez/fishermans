@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/styles.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.datatables.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/js/jquery-ui/jquery-ui.min.css'); ?>">
 
     <style>
     #view-source {

@@ -10,25 +10,32 @@
   <div class="mdl-cell mdl-cell--6-col">
    <?php if(isset($ship)): ?>
     <form action="<?php echo base_url('index.php/ship/update_ship'); ?>" method = "post" id = "updateShipForm">
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input type="hidden" name="txtId" value="<?php echo $ship->id; ?>">
+        <input type="hidden"  id="txtOwnerId" value="<?php echo $ship->id_owner; ?>">
         <input class="mdl-textfield__input" type="text" id="txtMatricula" name="txtMatricula" value = "<?php echo $ship->matricula; ?>">
         <label class="mdl-textfield__label" for="txtMatricula">Matricula</label>
       </div>
       <br/>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtManga" name="txtManga" value = "<?php echo $ship->manga; ?>">
         <label class="mdl-textfield__label" for="txtManga">Manga</label>
       </div>
       <br/>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtEslora" name="txtEslora" value = "<?php echo $ship->eslora; ?>">
         <label class="mdl-textfield__label" for="txtEslora">Eslora</label>
       </div>
       <br>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtCrew" name="txtCrew" value = "<?php echo $ship->max_crew; ?>">
         <label class="mdl-textfield__label" for="txtCrew">Tripulacui&oacute;n maxima</label>
+      </div>
+      <br>
+      <div class="mdl-textfield mdl-js-textfield" >
+        <select class="form-control" placeholder = 'Dueño' id="txtOwner" name="txtOwner">
+          <option value="">--Elegir dueño--</option>
+        </select>
       </div>
       <br>
       <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
@@ -37,28 +44,29 @@
     </form>
    <?php else:?>
     <form action="<?php echo base_url('index.php/ship/save_ship'); ?>" method = "post" id = "newShipForm">
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtMatricula" name="txtMatricula" >
         <label class="mdl-textfield__label" for="txtMatricula">Matricula</label>
       </div>
       <br/>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtManga" name="txtManga" >
         <label class="mdl-textfield__label" for="txtManga">Manga</label>
       </div>
       <br/>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtEslora" name="txtEslora" >
         <label class="mdl-textfield__label" for="txtEslora">Eslora</label>
       </div>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtCrew" name="txtCrew" >
         <label class="mdl-textfield__label" for="txtCrew">Tripulaci&oacute;n maxima</label>
       </div>
 
-      <div class="mdl-textfield mdl-js-textfield" id="txtOwner" name="txtOwner" >
+      <div class="mdl-textfield mdl-js-textfield" >
 
-        <select class="form-control" placeholder = 'Dueño'>
+        <select class="form-control" placeholder = 'Dueño' id="txtOwner" name="txtOwner">
+          <option value="">--Elegir dueño--</option>
         </select>
       </div>
       <br>
@@ -73,15 +81,22 @@
 <?php  $this->load->view('includes/footer'); ?>
 <script type="text/javascript">
 	$(document).ready(function(){
+    loadOwnerSelect('txtOwner');
+
 		$('#newShipForm').ajaxForm({ 
         beforeSubmit: function(formData, jqForm, options){
           $("#divError").hide().html("");
           var form = jqForm[0]; 
           var isValid = true;
 
-          if(isNaN(form.txtMatricula.value) || form.txtMatricula.value == '')
+          if(form.txtMatricula.value == '')
           {
             $("#divError").show().append("El campo Matricula es requerido<br>");
+            isValid = false;
+          }
+          if(form.txtOwner.value == '')
+          {
+            $("#divError").show().append("El campo Dueño es requerido<br>");
             isValid = false;
           }
           if(isNaN(form.txtManga.value) || form.txtManga.value == '')
@@ -91,7 +106,7 @@
           }
           if(isNaN(form.txtEslora.value) || form.txtEslora.value == '')
           {
-            $("#divError").show().append("El campo Manga debe de ser numerico<br>");
+            $("#divError").show().append("El campo Eslora debe de ser numerico<br>");
             isValid = false;
           }
           if(isNaN(form.txtCrew.value) || form.txtCrew.value == '')
@@ -130,6 +145,11 @@
             $("#divError").show().append("El campo Matricula es requerido<br>");
             isValid = false;
           }
+          if(form.txtOwner.value == '')
+          {
+            $("#divError").show().append("El campo Dueño es requerido<br>");
+            isValid = false;
+          }
           if(isNaN(form.txtManga.value) || form.txtManga.value == '')
           {
             $("#divError").show().append("El campo Manga debe de ser numerico<br>");
@@ -137,7 +157,7 @@
           }
           if(isNaN(form.txtEslora.value) || form.txtEslora.value == '')
           {
-            $("#divError").show().append("El campo Manga debe de ser numerico<br>");
+            $("#divError").show().append("El campo Eslora debe de ser numerico<br>");
             isValid = false;
           }
           if(isNaN(form.txtCrew.value) || form.txtCrew.value == '')
@@ -145,7 +165,6 @@
             $("#divError").show().append("El campo tripulaci&oacute;n maxima debe de ser numerico<br>");
             isValid = false;
           }
-
           return isValid; 
           
            
@@ -165,5 +184,6 @@
           
         }
     }); 
+
 	});
 </script>

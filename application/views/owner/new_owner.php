@@ -10,28 +10,28 @@
   <div class="mdl-cell mdl-cell--6-col">
    <?php if(isset($owner)): ?>
     <form action="<?php echo base_url('index.php/owner/update_owner'); ?>" method = "post" id = "updateOwnerForm">
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input type="hidden" name="txtId" value="<?php echo $owner->id; ?>">
         <input class="mdl-textfield__input" type="text" id="txtNif" name="txtNif" value = "<?php echo $owner->identificacion; ?>">
         <label class="mdl-textfield__label" for="txtNif">NIF</label>
       </div>
       <br/>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtNombre" name="txtNombre" value = "<?php echo $owner->nombre; ?>">
         <label class="mdl-textfield__label" for="txtNombre">Nombre</label>
       </div>
       <br/>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtDireccion" name="txtDireccion" value = "<?php echo $owner->direccion; ?>">
         <label class="mdl-textfield__label" for="txtDireccion">Direcci&oacute;n</label>
       </div>
       <br/>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtTelefono" name="txtTelefono" value = "<?php echo $owner->telefono; ?>">
         <label class="mdl-textfield__label" for="txtTelefono">Telefono</label>
       </div>
       <br/>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtFax" name="txtFax" value = "<?php echo $owner->fax; ?>">
         <label class="mdl-textfield__label" for="txtFax">Fax</label>
       </div>
@@ -42,27 +42,27 @@
     </form>
    <?php else:?>
     <form action="<?php echo base_url('index.php/owner/save_owner'); ?>" method = "post" id = "newOwnerForm">
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtNif" name="txtNif">
         <label class="mdl-textfield__label" for="txtNif">NIF</label>
       </div>
       <br/>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtNombre" name="txtNombre">
         <label class="mdl-textfield__label" for="txtNombre">Nombre</label>
       </div>
       <br/>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtDireccion" name="txtDireccion">
         <label class="mdl-textfield__label" for="txtDireccion">Direcci&oacute;n</label>
       </div>
       <br/>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtTelefono" name="txtTelefono">
         <label class="mdl-textfield__label" for="txtTelefono">Telefono</label>
       </div>
       <br/>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
         <input class="mdl-textfield__input" type="text" id="txtFax" name="txtFax">
         <label class="mdl-textfield__label" for="txtFax">Fax</label>
       </div>
