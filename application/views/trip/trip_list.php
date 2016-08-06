@@ -11,7 +11,7 @@
 	</button>
   </div>
   <div class="mdl-cell mdl-cell--12-col">
-  <table id="crewTable" class="display" cellspacing="0" width="100%">
+  <table id="tripsTable" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>ID</th>
@@ -45,5 +45,6 @@
 			window.location = '<?php echo base_url("index.php/home/new_trip"); ?>'
 		})
 
+    loadTripTable("tripsTable");
 	});
 </script>

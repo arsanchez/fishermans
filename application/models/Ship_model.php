@@ -56,4 +56,57 @@ class Ship_model extends CI_Model
       }
       return false;
     }
+
+    public function get_crew($shipId = 0)
+    {
+      $this->db->select('*');
+      $this->db->from('crew');
+      $this->db->where('id_ship',$shipId);
+      $query = $this->db->get()->result_array();
+      return $query;
+    }
+
+    public function save_trip($data)
+    {
+      if($data != null) 
+      {
+        return $this->db->insert('salida', $data);
+      }
+      else
+      {
+        return false;
+      }
+    }
+
+    public function save_trip_detail($data)
+    {
+      if($data != null) 
+      {
+        return $this->db->insert('salida_detalle', $data);
+      }
+      else
+      {
+        return false;
+      }
+    }
+
+    public function get_trips()
+    {
+     
+      $this->db->select('s.id,s.id_ship,s.date,sp.matricula');
+      $this->db->from('salida s');
+      $this->db->join('ship sp','sp.id = s.id_ship','LEFT');
+      $query = $this->db->get()->result_array();
+      return $query;
+    }
+
+    public function get_trip_det($trip)
+    {
+      $this->db->select('*');
+      $this->db->from('salida_detalle sd');
+      $this->db->where('id_salida',$trip);
+      $this->db->join('crew c','c.id = sd.id_crew','LEFT');
+      $query = $this->db->get()->result_array();
+      return $query;
+    }
   }

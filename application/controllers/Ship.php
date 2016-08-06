@@ -70,7 +70,7 @@ class Ship extends CI_Controller {
 
 	public function update_ship()
 	{
-		// TODO validate inputs
+
 		$this->form_validation->set_rules('txtId', 'Id', 'required');
 		$this->form_validation->set_rules('txtMatricula', 'Matricula', 'required');
 		$this->form_validation->set_rules('txtManga', 'Manga', 'required');
@@ -111,5 +111,11 @@ class Ship extends CI_Controller {
 	{
 		$data = $this->ship_model->get_ships();
 		echo json_encode($data);
+	}
+
+	public function get_ship_crew($shipId = 0)
+	{
+		$datos = $this->ship_model->get_crew($shipId);
+		echo json_encode($datos);
 	}
 }
